@@ -1,39 +1,30 @@
-goods = {
-    "1": {"name": "iPhon 20 pro max", "price": 10},
-    "2": {"name": "Mac Book Pro2025", "price": 20},
-    "3": {"name": "S30 Ultra", "price": 15},
-    "4": {"name": "", "price": 30},
-    "5": {"name": "Item 5", "price": 25}
-}
+goods = {"phone": 400, "computer" : 1000, "car":8000, "building": 200000}
 
-# goods1 = {"phone": "400", "computer" : "1000", "car":"8000", "building": "200000"}
-
-balance = 100
-purchased_goods = []
-
-print("List of available goods in Matin shoping system:")
+varBalance = 80000
+varPurchased = []
+vartotal = 0;
+print("Available items in 马丁 shopping system:")
 for key, item in goods.items():
-    print(f"{key}. {item['name']} - ${item['price']}")
+    print("Items: {key}  ------->  Price:  ${item}")
 
 while True:
-    print(f"\nYour balance: ${balance}")
-    choice = input("Enter the number of the item you want to purchase (or 'q' to quit): ")
+    print(f"\nYour balance: ${varBalance}")
+    varInput = input("Enter the item name to buy or (x) to stop shopping: ")
 
-    if choice == 'q':
+    if varInput == 'x':
         break
 
-    if choice in goods:
-        item = goods[choice]
-        if balance >= item['price']:
-            balance -= item['price']
-            purchased_goods.append(item['name'])
-            print(f"Purchase successful! {item['name']} added to your cart.")
+    if varInput in goods:
+        item = goods[varInput]
+        if varBalance >= item:
+            varBalance -= item
+            vartotal +=item
+            varPurchased.append(varInput)
+            print("The purchase is successful, and the corresponding fees are deducted!")
         else:
-            print("Insufficient balance. Please add funds.")
-    else:
-        print("Invalid choice. Please try again.")
+            print("The balance is insufficient.")
 
-print("\nThank you for shopping with us!")
-print("Your Purchased Goods:")
-for item in purchased_goods:
-    print(item)
+print("Purchased Goods:")
+print(varPurchased)
+print("Total purchased amount:  ")
+print(vartotal)
