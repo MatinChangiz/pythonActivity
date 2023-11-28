@@ -30,3 +30,4 @@ print("Total purchased amount:  ")
 print(vartotal)
 
 # All assignment have been submitted to teacher
+# Some more comment
